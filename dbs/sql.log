@@ -1,0 +1,14 @@
+timestamp: 2020-07-29T16:37:30.798713
+CREATE TABLE "courses"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "class_id" INTEGER,
+    "class_name" CHAR(512),
+    "date_time" CHAR(512),
+    "descriptive_link" CHAR(512),
+    "enrolled" CHAR(512),
+    "instructor" CHAR(512),
+    "link_sources" CHAR(512),
+    "location" CHAR(512),
+    "status" CHAR(512)
+);
+success!
