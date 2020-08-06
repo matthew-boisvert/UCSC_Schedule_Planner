@@ -4,7 +4,7 @@ from pydal import DAL, Field
 
 def main():
     controller = DatabaseController()
-    print(controller.find_course(class_id=21915))
+    print(controller.find_course(class_id=21915).date_time)
 
 class DatabaseController:
     def update_database(self):
@@ -35,16 +35,16 @@ class DatabaseController:
                         Field('descriptive_link'), Field('enrolled'), Field('instructor'), Field('link_sources'),
                         Field('location'), Field('status'))
         if(course_name != None):
-            rows = db(db.courses.class_name == course_name).select()
+            rows = db(db.courses.class_name.like('%'+course_name+'%')).select()
             if len(rows) > 0 and class_id != None:
-                return db(db.courses.class_name == course_name and db.courses.class_id == class_id).select()
+                return db(db.courses.class_name.like('%'+course_name+'%') and db.courses.class_id == class_id).select().first()
             elif len(rows) > 0 and instructor != None:
-                return db(db.courses.class_name == course_name and db.courses.instructor == instructor).select()
+                return db(db.courses.class_name.like('%'+course_name+'%') and db.courses.instructor == instructor).select().first()
             else:
-                return rows
+                return rows.first()
         elif(class_id != None):
             rows = db(db.courses.class_id == class_id).select()
-            return rows
+            return rows.first()
         else:
             return None
 

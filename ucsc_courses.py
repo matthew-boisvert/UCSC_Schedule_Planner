@@ -97,7 +97,6 @@ class CourseParser():
             # Grab relevant data, heavily relying on html elements ( this may change a lot as the HTML page changes )
             filtered_entry = Helpers.find_between(Helpers,entries,'<div class="panel-heading panel-heading-custom"><H2 style="margin:0px;">', 'Materials</a></div>')
             filtered_json = {}
-            print( filtered_entry)
             descriptive_link = Helpers.find_between(Helpers, filtered_entry, 'href = "index.php?', '"')
             class_name = Helpers.find_between(Helpers, filtered_entry, '{}">'.format(descriptive_link), '</a>')
             title = Helpers.find_between(Helpers, filtered_entry, 'title="', '"')
@@ -160,6 +159,11 @@ class API():
         term = request.args.get('term', default=CourseParser.get_term_info()[0].get('term_id'), type=str)
         times = request.args.get('times', default='', type=str)
         title = request.args.get('title', default='', type=str)
+
+        term_data = {}
+        term_data["relevant_term"] = request.args.get('term', default=CourseParser.get_term_info()[0].get('term_value'), type=str)
+        with open('relevant_term.json', 'w') as outfile:
+            json.dump(term_data, outfile)
 
         recognized_fields = {
             "action": action,
@@ -227,6 +231,11 @@ class API():
             "binds[:term]:": CourseParser.get_term_info()[0].get('term_id')
         }
 
+        term_data = {}
+        term_data["relevant_term"] = request.args.get('term', default=CourseParser.get_term_info()[0].get('term_value'), type=str)
+        with open('relevant_term.json', 'w') as outfile:
+            json.dump(term_data, outfile)
+
         # Combines two dictionaries together
         # See: https://stackoverflow.com/questions/38987/how-to-merge-two-dictionaries-in-a-single-expression
         open_courses_payload = { **default_payload,  **custom_payload }
@@ -281,7 +290,6 @@ class API():
                 'msg': 'Your only choices in this endpoint is /open or /all, otherwise, just use /open_courses'
             })
 
-        print(CourseParser.get_term_info()[0])
         custom_payload = {
             "binds[:catalog_nbr_op]:": "=",
             "binds[:crse_units_op]:": "=",
@@ -289,6 +297,11 @@ class API():
             "binds[:reg_status]:": str(reg_status),
             "binds[:term]:": CourseParser.get_term_info()[0].get('term_id')
         }
+
+        term_data = {}
+        term_data["relevant_term"] = request.args.get('term', default=CourseParser.get_term_info()[0].get('term_value'), type=str)
+        with open('relevant_term.json', 'w') as outfile:
+            json.dump(term_data, outfile)
 
         # Combines two dictionaries together
         # See: https://stackoverflow.com/questions/38987/how-to-merge-two-dictionaries-in-a-single-expression
@@ -326,6 +339,11 @@ class API():
             "binds[:term]:":bind_term,
             "rec_dur": num_of_results
         }
+
+        term_data = {}
+        term_data["relevant_term"] = request.args.get('term', default=CourseParser.get_term_info()[0].get('term_value'), type=str)
+        with open('relevant_term.json', 'w') as outfile:
+            json.dump(term_data, outfile)
 
         # Combines two dictionaries together
         # See: https://stackoverflow.com/questions/38987/how-to-merge-two-dictionaries-in-a-single-expression
