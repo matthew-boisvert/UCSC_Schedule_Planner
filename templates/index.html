@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+</style>
+<body>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}"/>
+<h1 style="text-align:center">UCSC Class Scheduler</h1>
+
+
+<div class="box">
+  <form action="/submit">
+    <label for="class_name">Department</label>
+    <select id="class_name" name="class_name">
+      {% for o in data %}
+      <option value="{{ o[0] }}">{{ o[0] }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>

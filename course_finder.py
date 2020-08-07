@@ -4,7 +4,7 @@ from pydal import DAL, Field
 
 def main():
     controller = DatabaseController()
-    print(controller.find_course(class_id=21915).date_time)
+    print(controller.get_course_names()[0][0])
 
 class DatabaseController:
     def update_database(self):
@@ -48,6 +48,12 @@ class DatabaseController:
         else:
             return None
 
+    def get_course_names(self):
+        db = DAL('sqlite://courses.db', folder='dbs')
+        db.define_table('courses', Field('class_id', type='integer'), Field('class_name'), Field('date_time'),
+                        Field('descriptive_link'), Field('enrolled'), Field('instructor'), Field('link_sources'),
+                        Field('location'), Field('status'))
+        return db.executesql('SELECT DISTINCT class_name FROM courses')
 
 if __name__ == '__main__':
     main()
