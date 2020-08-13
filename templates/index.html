@@ -1,25 +1,117 @@
 <!DOCTYPE html>
 <html>
-<style>
 
-</style>
-<body>
+<body onload="insertSelects()">
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}"/>
 <h1 style="text-align:center">UCSC Class Scheduler</h1>
-
-
-<div class="box">
-  <form action="/submit">
-    <label for="class_name">Department</label>
-    <select id="class_name" name="class_name">
-      {% for o in data %}
-      <option value="{{ o[0] }}">{{ o[0] }}</option>
-      {% endfor %}
-    </select>
-
-    <input type="submit" value="Submit">
+<br><br>
+<div class="small_box" style="text-align:center">
+  <h2 style="text-align:center"> Enter your email and the number of classes you are enrolled in for Fall 2020 </h2><hr>
+  <form action="/" method="post">
+    <label for="email">Email</label><br>
+    <input type="text" id="email" name="email"><br>
+    <label for="numClasses">Number of Classes</label><br>
+    <input type="number" id="numClasses" name="numClasses" min="1" max="6">
+    <input id="info_submit" type="submit" value="Submit">
   </form>
 </div>
+
+<br></br>
+
+
+
+<script>
+  function update_select(id) {
+    var prefix_element = document.getElementById(id);
+    var element_num = id.match(/\d+/);
+    var label = document.createElement('label');
+    label.htmlFor = 'class_name';
+    label.innerText = 'Course Name';
+    var sel = "";
+    if(document.getElementById("class_name"+element_num) == null) {
+      sel = document.createElement('select');
+      sel.setAttribute("id", "class_name"+element_num);
+      sel.setAttribute("name", "class_name"+element_num);
+      insertAfter(sel, prefix_element);
+      sel.parentNode.insertBefore(label, sel);
+    }
+    else {
+      sel = document.getElementById("class_name"+element_num);
+    }
+
+    var prefixText = prefix_element.options[prefix_element.selectedIndex].text;
+    names = [];
+    {% for n in names %}
+      names.push("{{ n[0] }}");
+    {% endfor %}
+    var optionHtml = "";
+    for(var i = 0; i < names.length; i++) {
+      if(prefixText === names[i].split(" ")[0]) {
+        optionHtml += "<option value='" + names[i] + "'>" + names[i] + "</option>";
+      }
+    }
+    sel.innerHTML = optionHtml;
+  }
+
+
+  function insertAfter(newNode, referenceNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+  }
+
+  function insertSelects() {
+    var email = "{{ email }}";
+    var numClasses = "{{ numClasses }}";
+    if(email == "" || numClasses == "" || document.getElementById("data_box") != null) {
+      return;
+    }
+    var box = document.createElement("div");
+    box.className = "box";
+    box.setAttribute("id", "data_box");
+    var header = document.createElement("h2");
+    header.innerText = "Select your classes";
+    box.appendChild(header);
+    var form = document.createElement("form");
+    form.action = "/submit";
+    form.method = "post";
+    form.setAttribute("id", "data_form");
+    var submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "Submit";
+
+
+    for(var i = 0; i < parseInt(numClasses); i++) {
+      var incrementedIndex = i+1;
+      var label = document.createElement("label");
+      label.htmlFor = 'class_prefix'+i;
+      label.innerText = 'Course Prefix';
+
+      var header = document.createElement("h3");
+      header.innerText = "Class " + incrementedIndex;
+      var select = document.createElement("select");
+      select.setAttribute("id", "class_prefix"+i);
+      select.setAttribute("name", "class_prefix"+i);
+      select.setAttribute("onchange", "update_select(this.id)");
+      select.innerHTML = "<option> Select... </option>";
+      {% for o in prefixes %}
+      select.innerHTML += "<option value={{ o }}>{{ o }}</option>";
+      {% endfor %}
+      form.appendChild(document.createElement("hr"));
+      form.appendChild(header);
+      form.appendChild(label);
+      form.appendChild(select);
+      form.appendChild(document.createElement("br"));
+
+
+    }
+
+    form.appendChild(submit);
+    box.appendChild(form);
+    document.body.appendChild(box);
+  }
+
+
+</script>
+
 
 </body>
 </html>

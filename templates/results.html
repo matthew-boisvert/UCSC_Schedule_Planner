@@ -4,8 +4,58 @@
 
 </style>
 <body>
+
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}"/>
-<h1 style="text-align:center"> The following classes have been added to your calendar: </h1>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/results_first_stylesheet.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/results_second_stylesheet.css') }}">
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+					<div class="table">
+
+						<div class="row header">
+							<div class="cell">
+								Course Name
+							</div>
+							<div class="cell">
+                                Successfully Added to Calendar?
+							</div>
+							<div class="cell">
+								Calendar Link
+							</div>
+						</div>
+
+						{% for entry in data%}
+						<div class="row">
+							<div class="cell" data-title="Course Name">
+								{{ entry["name"] }}
+							</div>
+							<div class="cell" data-title="Added to Calendar?">
+								{{ entry["success"] }}
+							</div>
+							<div class="cell" data-title="Calendar Link">
+								{{ entry["link"] }}
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+
 
 
 

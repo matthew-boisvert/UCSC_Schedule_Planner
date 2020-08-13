@@ -5,6 +5,7 @@ from pydal import DAL, Field
 def main():
     controller = DatabaseController()
     print(controller.get_course_names()[0][0])
+    print(controller.get_prefixes())
 
 class DatabaseController:
     def update_database(self):
@@ -48,12 +49,28 @@ class DatabaseController:
         else:
             return None
 
-    def get_course_names(self):
+    def get_course_names(self, prefix=None):
         db = DAL('sqlite://courses.db', folder='dbs')
         db.define_table('courses', Field('class_id', type='integer'), Field('class_name'), Field('date_time'),
                         Field('descriptive_link'), Field('enrolled'), Field('instructor'), Field('link_sources'),
                         Field('location'), Field('status'))
-        return db.executesql('SELECT DISTINCT class_name FROM courses')
+        if(prefix != None):
+            return db.executesql('SELECT DISTINCT class_name FROM courses WHERE class_name LIKE ' + prefix + '%')
+        else:
+            return db.executesql('SELECT DISTINCT class_name FROM courses')
+
+    def get_prefixes(self):
+        db = DAL('sqlite://courses.db', folder='dbs')
+        db.define_table('courses', Field('class_id', type='integer'), Field('class_name'), Field('date_time'),
+                        Field('descriptive_link'), Field('enrolled'), Field('instructor'), Field('link_sources'),
+                        Field('location'), Field('status'))
+
+        course_names = self.get_course_names()
+        prefixes = []
+        for name in course_names:
+            if name[0].split()[0] not in prefixes:
+                prefixes.append(name[0].split()[0])
+        return prefixes
 
 if __name__ == '__main__':
     main()

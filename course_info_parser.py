@@ -65,15 +65,23 @@ class CourseInfoParser:
         start_time = get_time(date_time.split()[1].split("-")[0])
         end_time = get_time(date_time.split()[1].split("-")[1])
         first_day_times = {}
+        class_weekdays = date_time.split()[0]
+        weekday_info = []
+        day_offset = 100
+        for weekday in re.findall('[A-Z][^A-Z]*', class_weekdays):
+            dist = (parse_weekday(weekday)-quarter_start.weekday() + 7) % 7
+            if(dist < day_offset):
+                day_offset = dist
+        num_days_to_shift = 0
         
-        first_day_times["start"] = quarter_start + datetime.timedelta(hours = int(start_time["hours"]), minutes=int(start_time["minutes"]))
-        first_day_times["end"] = quarter_start + datetime.timedelta(hours = int(end_time["hours"]), minutes=int(end_time["minutes"]))
+        first_day_times["start"] = quarter_start + datetime.timedelta(days = day_offset, hours = int(start_time["hours"]), minutes=int(start_time["minutes"]))
+        first_day_times["end"] = quarter_start + datetime.timedelta(days = day_offset, hours = int(end_time["hours"]), minutes=int(end_time["minutes"]))
         return first_day_times
 
 
 def get_time(time_string):
     data = time_string.split(":")
-    hours = data[0]
+    hours = int(data[0])
     minutes = wrap(data[1], 2)[0]
     period = wrap(data[1], 2)[1]
     if(period == "PM" and hours != 12):
@@ -82,6 +90,20 @@ def get_time(time_string):
     time["hours"] = hours
     time["minutes"] = minutes
     return time
+
+def parse_weekday(weekday_char):
+    if (weekday_char == "M"):
+        return 0
+    elif (weekday_char == "T" or weekday_char == "Tu"):
+        return 1
+    elif (weekday_char == "W"):
+        return 2
+    elif (weekday_char == "Th"):
+        return 3
+    elif (weekday_char == "F"):
+        return 4
+    else:
+        return None
 
 if __name__ == '__main__':
     main()

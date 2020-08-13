@@ -12,10 +12,21 @@ h1 {
     color: #17252A;
 }
 
+h2 {
+    text-align:center;
+}
+
+
 body {
   font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #3AAFA9;
+  background-image: url('../slug.png');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: 50% 1%;
+  background-attachment: local;
+  opacity: 0.9;
 }
 
 .container {
@@ -172,6 +183,16 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;
@@ -187,10 +208,36 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+button {
+    float: right;
+}
+
 .box {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+}
+
+.small_box {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#email {
+    width: 50%;
+}
+
+#numClasses {
+    width: 50%;
+}
+
+#info_submit {
+    width: 50%;
 }
 
 

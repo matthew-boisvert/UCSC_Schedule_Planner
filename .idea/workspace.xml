@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc31788b-4216-415c-b3f3-782418d18e64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mainPage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/stylesheets/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/slug.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/stylesheets/results_first_stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/stylesheets/results_second_stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/url_shortener.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_finder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_info_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/course_info_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relevant_term.json" beforeDir="false" afterPath="$PROJECT_DIR$/relevant_term.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_access.log" beforeDir="false" afterPath="$PROJECT_DIR$/server_access.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/stylesheets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/stylesheets/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/update_calendar.py" beforeDir="false" afterPath="$PROJECT_DIR$/update_calendar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +45,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Matt'sCoolPC\PycharmProjects\UCSC_Schedule_Planner\static\stylesheets" />
       <recent name="C:\Users\Matt'sCoolPC\PycharmProjects\UCSC_Schedule_Planner\static" />
       <recent name="C:\Users\Matt'sCoolPC\PycharmProjects\UCSC_Schedule_Planner\stylesheets" />
       <recent name="C:\Users\Matt'sCoolPC\PycharmProjects\UCSC_Schedule_Planner" />
@@ -58,27 +66,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/course_finder.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="course_info_parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="UCSC_Schedule_Planner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/course_info_parser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,13 +137,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="url_shortener" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="UCSC_Schedule_Planner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/url_shortener.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.mainPage" />
+        <item itemvalue="Python.url_shortener" />
         <item itemvalue="Python.update_calendar" />
-        <item itemvalue="Python.course_finder" />
         <item itemvalue="Python.ucsc_courses" />
-        <item itemvalue="Python.course_info_parser" />
+        <item itemvalue="Python.course_finder" />
       </list>
     </recent_temporary>
   </component>
@@ -186,30 +194,50 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2636" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596066240120">
+    <state x="2636" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597035895166">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2636" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596066240120" />
-    <state x="2610" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596433001699">
+    <state x="2636" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035895166" />
+    <state x="2610" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597035904789">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2610" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596433001699" />
-    <state width="1899" height="252" key="GridCell.Tab.0.bottom" timestamp="1596792057379">
+    <state x="2610" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035904789" />
+    <state width="1899" height="252" key="GridCell.Tab.0.bottom" timestamp="1597043886162">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597043886162" />
+    <state width="1899" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035908049" />
+    <state width="1899" height="252" key="GridCell.Tab.0.center" timestamp="1597043886162">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="252" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597043886162" />
+    <state width="1899" height="252" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035908049" />
+    <state width="1899" height="252" key="GridCell.Tab.0.left" timestamp="1597043886162">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="252" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597043886162" />
+    <state width="1899" height="252" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035908049" />
+    <state width="1899" height="252" key="GridCell.Tab.0.right" timestamp="1597043886162">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="252" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597043886162" />
+    <state width="1899" height="252" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1597035908049" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1596881469826">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596792057379" />
-    <state width="1899" height="252" key="GridCell.Tab.0.center" timestamp="1596792057378">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596881469826" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1596881469826">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="252" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596792057378" />
-    <state width="1899" height="252" key="GridCell.Tab.0.left" timestamp="1596792057378">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596881469826" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1596881469826">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="252" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596792057378" />
-    <state width="1899" height="252" key="GridCell.Tab.0.right" timestamp="1596792057378">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596881469826" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1596881469826">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="252" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596792057378" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1596881469826" />
     <state x="2691" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596785955852">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

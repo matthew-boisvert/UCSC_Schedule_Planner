@@ -105,7 +105,7 @@ def update_calendar(class_name, email):
     return msg
 
 def main():
-    update_calendar("CSE 138", "mboisver@ucsc.edu")
+    update_calendar("ANTH 110Q", "mboisver@ucsc.edu")
 
 
 if __name__ == '__main__':
